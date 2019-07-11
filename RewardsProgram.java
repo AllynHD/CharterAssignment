@@ -34,12 +34,11 @@ public class RewardsProgram {
     static void printAllCustomersTotalRewards() {
         for (Customer customer : customerList) {
             int customerId = customer.getCustomerId();
-            System.out.println("Total rewards for Customer " + customerId + " = " + getRewardsForSingleCustomer(customerId));
-        }
+            printRewardsForSingleCustomer(customerId);        }
     }
 
-    static int getRewardsForSingleCustomer(int customerId) {
-        return getOrCreateCustomerById(customerId).getRewardBalance();
+    static void printRewardsForSingleCustomer(int customerId) {
+        System.out.println("Total rewards for customer " + customerId + " = " + getOrCreateCustomerById(12345).getRewardBalance());
     }
 
     static int getMonthlyCustomerRewards (Customer customer, Month month) {
@@ -75,11 +74,12 @@ public class RewardsProgram {
             System.out.println("DateTime Error! Message = " + e.getMessage() + " AND NOTHING AFTER THIS DATE PROCESSED. Fix error and run again.");
         }
 
+
         // To print total rewards for every customer, uncomment following line
 //        printAllCustomersTotalRewards();
 
         // To print a single customer's total rewards, uncomment following line and define customer by changing customerId argument (placeholder value = 12345).
-//        System.out.println("Accumulated rewards for customer <customerId> = " + getRewardsForSingleCustomer(12345));
+//        printRewardsForSingleCustomer(12345);
 
         // To print a particular monthly reward total for a particular customer, uncomment following line and fill in arguments (month should be in format Month.MONTHNAME)
 //        selectCustomerAndMonthForMonthlyRewards(12345, Month.AUGUST);
